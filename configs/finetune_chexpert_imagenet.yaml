@@ -1,0 +1,44 @@
+# @package _global_
+
+# specify here default configuration
+# order of defaults determines the order in which configs override each other
+defaults:
+  - datamodule: chexpert.yaml
+  - model: chexpert_finetune_model.yaml
+  - callbacks: chexpert_finetune_callbacks.yaml
+  - logger: chexpert_loggers # set logger here or use command line (e.g. `python train.py logger=tensorboard`)
+  - trainer: chexpert_finetune_trainer.yaml
+  - paths: chexpert_finetune_paths.yaml
+  - extras: default.yaml
+  - hydra: default.yaml
+  # debugging config (enable through command line, e.g. `python train.py debug=default)
+  - debug: null
+  - _self_
+
+datamodule:
+  normalize_mean_values: [0.485, 0.456, 0.406] #Imagenet
+  normalize_std_values: [0.229, 0.224, 0.225] #Imagenet
+
+model:
+  model:
+    image_model:
+      weights: 'IMAGENET1K_V2'
+    checkpoint_path: ''
+
+# task name, determines output directory path
+task_name: "chexpert_finetune_imagenet"
+
+# set False to skip model training
+train: True
+
+# evaluate on test set, using best model weights achieved during training
+# lightning chooses best weights based on the metric specified in checkpoint callback
+test: True
+
+# simply provide checkpoint path to resume training
+ckpt_path: null
+
+# seed for random number generators in pytorch, numpy and python.random
+seed: 42
+
+tags: ['dev', "imagenet"]

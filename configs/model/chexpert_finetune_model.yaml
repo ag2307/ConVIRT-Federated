@@ -1,0 +1,27 @@
+_target_: src.models.chexpert_module.CheXpertLitModule
+
+optimizer:
+  _target_: torch.optim.Adam
+  _partial_: true
+  lr: 0.001
+  weight_decay: 0.000001
+
+scheduler:
+  _target_: torch.optim.lr_scheduler.ReduceLROnPlateau
+  _partial_: true
+  mode: min
+  factor: 0.75
+  patience: 10
+
+criterion:
+  _target_: torch.nn.modules.loss.BCELoss
+  reduction: 'mean'
+
+model:
+  _target_: src.models.chexpert_model.CheXpert
+  image_model:
+    _target_: src.models.image_encoder.ImageEncoder
+    name: resnet50
+  freeze_backbone: True
+  checkpoint_path: '/scratch/tm3647/public/image_model_weight.pth'
+  
