@@ -23,7 +23,7 @@ Install dependencies
 
 ```bash
 # clone project
-git clone https://github.com/tjdevWorks/ConVIRT-Federated
+git clone https://github.com/ag2307/ConVIRT-Federated
 cd ConVIRT-Federated
 
 # [OPTIONAL] create conda environment
@@ -39,8 +39,6 @@ Pretraining the model with default configuration
 ```bash
 python src/pretrain.py
 ```
-
-Fine tuning model slurm configuration execution scripts are available [scripts/tejas/a100/](scripts/tejas/a100/)
 
 An example of fine tuning in centralized setup:
 
