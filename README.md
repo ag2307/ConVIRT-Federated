@@ -89,5 +89,7 @@ python src/finetune_chexpert.py trainer.max_epochs=20 datamodule.batch_size=64
 ## Contributors
 
 Tejas Mahajan
+
 Sai Charitha Akula
+
 Abhinav Gupta
