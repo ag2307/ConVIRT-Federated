@@ -1,3 +1,4 @@
+**[NOTE] This is a public clone of a private repository (https://github.com/tjdevWorks/ConVIRT-Federated) and it may not be up-to-date with the latest changes.**
 ______________________________________________________________________
 
 <div align="center">
@@ -17,7 +18,6 @@ ______________________________________________________________________
 
 This repository contains code to train the ConVIRT model on the MIMIC-CXR-JPG dataset and fine tune the pretrained image backbone for downstream image multi-label classification on the CheXpert dataset in centralized and federated learning setups.
 <br><br>
-**[NOTE] This is a public clone of a private repository and it may not be up-to-date with the latest changes.**
 
 ## How to run
 
